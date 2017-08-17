@@ -1,4 +1,6 @@
 # imooc_rn
+
+imooc react-native学习
 ### 技术栈
 - JavaScript
 - ES5 / ES6
