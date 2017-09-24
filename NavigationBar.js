@@ -22,7 +22,6 @@ export default class NavigationBar extends Component {
     style: View.propTypes.style,
     title: PropTypes.string,
     titleView: PropTypes.element,
-    hide: PropTypes.boolean,
     leftButton: PropTypes.element,
     rightButton: PropTypes.element,
     statusBar: PropTypes.shape()
@@ -30,10 +29,8 @@ export default class NavigationBar extends Component {
 
   static defaultProps = {
     statusBar: {
-      barStyle: 'light-content',
-      hidden: false
     }
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -92,4 +89,4 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? STATUS_BAR_HEIGHT : 0,
   }
 
-})
+});

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import NavigationBar from './NavigationBar';
 
-export default class gril extends Component {
+export default class Girl extends Component {
   renderButton(image) {
     return (
     <TouchableOpacity onPress={
@@ -18,6 +18,7 @@ export default class gril extends Component {
     </TouchableOpacity>
     )
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -55,4 +56,4 @@ const styles = StyleSheet.create({
   tips: {
     fontSize: 22
   }
-})
+});

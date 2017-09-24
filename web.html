@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script typeof="application/text">
+      fetch('http://121.42.181.106:8080/examples/data/about.json').then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+    </script>
+
+</head>
+
+<body>
+
+HTML 内容显示<br/>
+
+<h1>
+    <div id="content">
+    </div>
+</h1>
+<br/>
+<button style="background-color: cornflowerblue" onclick="window.android.startFunction()">test</button>
+<br/>
+<button style="background-color: orangered" onclick="window.android.startFunction('xieshangwu')">test</button>
+
+
+</body>
+</html>

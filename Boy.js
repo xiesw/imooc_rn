@@ -4,10 +4,10 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
-import gril from './gril';
+import Girl from './Girl';
 import NavigationBar from './NavigationBar';
 
-export default class boy extends Component {
+export default class Boy extends Component {
 
   constructor(props) {
     super(props);
@@ -20,16 +20,20 @@ export default class boy extends Component {
     return (
       <View style={styles.container}>
         <NavigationBar
-          title={'boy'}
+          title={'Boy'}
           style={{
-            backgroundColor:'red',
-          }}
-        />
-        <Text style={styles.tips}>I am boy</Text>
+            backgroundColor: 'red',
+          }}/>
         <Text style={styles.tips}
               onPress={() => {
                 this.props.navigator.push({
-                  component: gril,
+                  component: Girl
+                })
+              }}>I am boy</Text>
+        <Text style={styles.tips}
+              onPress={() => {
+                this.props.navigator.push({
+                  component: Girl,
                   params: {
                     word: '一只玫瑰',
                     onCallBack: (word) => {
@@ -54,4 +58,4 @@ const styles = StyleSheet.create({
   tips: {
     fontSize: 20,
   }
-})
+});

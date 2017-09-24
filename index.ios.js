@@ -10,11 +10,15 @@ import {
   StyleSheet,
   Image,
   Text,
+  ListView,
   View
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import {Navigator} from 'react-native-deprecated-custom-components'
-import boy from './boy'
+import ListViewTest from './ListViewTest';
+import {Navigator} from 'react-native-deprecated-custom-components';
+import Boy from './Boy';
+import FetchTest from './FetchTest'
+
 
 export default class imooc_rn extends Component {
   constructor(props) {
@@ -69,15 +73,25 @@ export default class imooc_rn extends Component {
           </TabNavigator.Item>
         </TabNavigator>*/}
 
-        <Navigator
+        {/*<Navigator
           initialRoute={{
-            component:boy,
+            component: Boy,
           }}
           renderScene={(route, navigator) => {
             let Component = route.component;
             return <Component navigator={navigator} {...route.params}/>
-          }}
-        ></Navigator>
+          }}/>*/}
+
+        {/*<Navigator
+                    initialRoute={{
+                      component: ListViewTest,
+                    }}
+                    renderScene={(route, navigator) => {
+                      let Component = route.component;
+                      return <Component navigator={navigator} {...route.params}/>
+                    }}
+                  ></Navigator>*/}
+        <FetchTest/>
       </View>
     );
   }
