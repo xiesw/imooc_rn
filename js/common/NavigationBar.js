@@ -11,7 +11,7 @@ import {
 
 const NAVBAR_HEIGHT_ANDROID = 50;
 const NAVBAR_HEIGHT_IOS = 44;
-const STATUS_BAR_HEIGHT = 20;
+const STATUS_BAR_HEIGHT = 24;
 const StatusBarShape = {
   backgroundColor: PropTypes.string,
   barStyle: PropTypes.oneOf(['default', 'light-content', 'dark-content']),
@@ -64,7 +64,7 @@ export default class NavigationBar extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'gray'
+    backgroundColor: '#2196F3'
   },
   navBar: {
     justifyContent: 'space-between',

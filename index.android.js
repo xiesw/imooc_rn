@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 import {setup} from "./js/pages/setup";
+import AsyncStorageTest from './AsyncStorageTest';
 
 export default class imooc_rn extends Component {
   render() {

@@ -8,7 +8,7 @@ import {
   RefreshControl,
   Image
 } from 'react-native';
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "./js/common/NavigationBar";
 import HttpUtils from './HttpUtils';
 
 export default class FetchTest extends Component {

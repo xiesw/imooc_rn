@@ -9,7 +9,7 @@ import {
   Image
 } from 'react-native';
 import Toast, {DURATION} from 'react-native-easy-toast';
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "./js/common/NavigationBar";
 
 let data = {
   "result": [

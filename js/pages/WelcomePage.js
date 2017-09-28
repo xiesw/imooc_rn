@@ -6,24 +6,21 @@
 
 import React, {Component} from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   View,
-  Text
+  Text,
+  StyleSheet
 } from 'react-native';
-import CustomerComponents, {Navigator}
-  from 'react-native-deprecated-custom-components';
-import NavigationBar from "../../NavigationBar";
 import HomePage from "./HomePage";
+import BaseComponent from "./BaseComponent";
 
-export default class WelcomePage extends Component {
+export default class WelcomePage extends BaseComponent {
 
   componentDidMount() {
     this.timer = setTimeout(() => {
       this.props.navigator.resetTo({
         component: HomePage
       })
-    }, 2000);
+    }, 500);
   }
 
   componentWillUnmount() {
@@ -32,13 +29,20 @@ export default class WelcomePage extends Component {
 
   render() {
     return (
-      <View>
-        <NavigationBar
-          title={'欢迎'}/>
-        <Text>欢迎</Text>
+      <View style={styles.container}>
+        <Text style={styles.tips}>欢迎</Text>
       </View>
     )
-
   }
-
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  tips: {
+    fontSize: 36,
+  }
+})
