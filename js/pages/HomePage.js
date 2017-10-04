@@ -14,6 +14,8 @@ import TabNavigator from 'react-native-tab-navigator';
 import BaseComponent from "./BaseComponent";
 import PopularPage from './PopularPage'
 import AsyncStorageTest from "../../AsyncStorageTest";
+import MyPage from "./my/MyPage";
+
 export default class HomePage extends BaseComponent {
   constructor(props) {
     super(props);
@@ -67,7 +69,7 @@ export default class HomePage extends BaseComponent {
             renderSelectedIcon={() => <Image style={[styles.image, {tintColor: '#2196F3'}]}
                                              source={require('../../res/images/ic_trending.png')}/>}
             onPress={() => this.setState({selectedTab: 'tb_my'})}>
-            <View style={styles.page}></View>
+            <MyPage {...this.props}/>
           </TabNavigator.Item>
         </TabNavigator>
 
