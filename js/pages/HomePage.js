@@ -15,6 +15,7 @@ import BaseComponent from "./BaseComponent";
 import PopularPage from './PopularPage'
 import AsyncStorageTest from "../../AsyncStorageTest";
 import MyPage from "./my/MyPage";
+import SortKeyPage from "./my/SortKeyPage";
 
 export default class HomePage extends BaseComponent {
   constructor(props) {
@@ -58,7 +59,7 @@ export default class HomePage extends BaseComponent {
             renderSelectedIcon={() => <Image style={[styles.image, {tintColor: '#2196F3'}]}
                                              source={require('../../res/images/ic_polular.png')}/>}
             onPress={() => this.setState({selectedTab: 'tb_favorite'})}>
-            <View style={styles.page}></View>
+            <View/>
           </TabNavigator.Item>
 
           <TabNavigator.Item
