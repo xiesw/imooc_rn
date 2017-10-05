@@ -23,6 +23,7 @@ export default class CustomKeyPage extends Component {
   constructor(props) {
     super(props);
     this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
+    this.isRemoveKey = !!this.props.isRemoveKey;
     this.state = {
       dataArray: []
     };
@@ -50,6 +51,9 @@ export default class CustomKeyPage extends Component {
     if (this.changeValues.length === 0) {
       this.props.navigator.pop();
       return;
+    }
+    for(let i=0, len=this.changeValues.length;i<len;i++){
+      ArrayUtils.remove(this.state.dataArray, this.changeValues[i]);
     }
     this.languageDao.save(this.state.dataArray);
     this.props.navigator.pop();
@@ -86,32 +90,35 @@ export default class CustomKeyPage extends Component {
 
   renderCheckBox(data) {
     let leftText = data.name;
+    let isChecked = this.isRemoveKey ? false : data.checked;
     return (
       <CheckBox
-                style={{flex: 1, padding: 10}}
-                onClick={() => this.onClick(data)}
-                leftText={leftText}
-                isChecked={data.checked}
-                checkedImage={<Image style={{tintColor: '#6495ED'}}
-                                     source={require('../../../res/images/ic_check_box.png')}/>}
-                unCheckedImage={<Image style={{tintColor: '#6495ED'}}
-                                       source={require('../../../res/images/ic_check_box_outline_blank.png')}/>}
+        style={{flex: 1, padding: 10}}
+        onClick={() => this.onClick(data)}
+        leftText={leftText}
+        isChecked={isChecked}
+        checkedImage={<Image style={{tintColor: '#6495ED'}}
+                             source={require('../../../res/images/ic_check_box.png')}/>}
+        unCheckedImage={<Image style={{tintColor: '#6495ED'}}
+                               source={require('../../../res/images/ic_check_box_outline_blank.png')}/>}
       />
     )
   }
 
   onClick(data) {
     let arrs = this.state.dataArray;
-    data.checked = !data.checked;
+    if(!this.isRemoveKey) {
+      data.checked = !data.checked;
+    }
     this.setState({
-      dataArray:arrs
+      dataArray: arrs
     });
     ArrayUtils.updateArray(this.changeValues, data);
     //this.toast.show(data.name + ":" + data.checked,DURATION.LENGTH_SHORT);
   }
 
   onBack() {
-    if(this.changeValues.length === 0){
+    if (this.changeValues.length === 0) {
       this.props.navigator.pop();
       return;
     }
@@ -119,26 +126,32 @@ export default class CustomKeyPage extends Component {
       '提示',
       '需要保存修改吗',
       [
-        {text: 'Cancel', onPress: () => {this.props.navigator.pop();}, style: 'cancel'},
+        {
+          text: 'Cancel', onPress: () => {
+          this.props.navigator.pop();
+        }, style: 'cancel'
+        },
         {text: 'OK', onPress: () => this.onSave()},
       ],
-      { cancelable: false }
+      {cancelable: false}
     )
   }
 
   render() {
+    let title = this.isRemoveKey ? '移除标签' : '自定义标签';
+    let rightText = this.isRemoveKey ? '移除' : '保存';
     let rightButton =
       <TouchableOpacity
         onPress={() => this.onSave()}>
         <View style={{margin: 10}}>
-          <Text style={styles.title}>保存</Text>
+          <Text style={styles.title}>{rightText}</Text>
         </View>
       </TouchableOpacity>;
 
     return (
       <View style={styles.container}>
         <NavigationBar
-          title="自定义标签"
+          title={title}
           style={{backgroundColor: "#2196F3"}}
           statusBar={{
             backgroundColor: '#2196F3'
@@ -151,7 +164,8 @@ export default class CustomKeyPage extends Component {
           {this.renderView()}
         </ScrollView>
         <Toast ref={(toast) => {
-          this.toast = toast}}/>
+          this.toast = toast
+        }}/>
       </View>
     );
   }

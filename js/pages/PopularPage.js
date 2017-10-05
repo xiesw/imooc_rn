@@ -105,7 +105,8 @@ class PopularTab extends Component {
       .catch(error => {
         this.setState({
           result: '网络错误'
-        })
+        });
+        alert("dfd");
       })
   }
 
@@ -123,6 +124,7 @@ class PopularTab extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(data) => this.renderRow(data)}
+          enableEmptySections = {true}
           refreshControl={
             <RefreshControl
               refreshing={this.state.isLoading}

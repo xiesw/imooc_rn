@@ -53,4 +53,20 @@ export default class ArrayUtils {
     }
     return true;
   }
+
+  /**
+   * 将数组中指定元素移除
+   * @param arr
+   * @param item
+   */
+  static remove(arr, item) {
+    if (!arr) {
+      return;
+    }
+    let index = arr.indexOf(item);
+    if (index !== -1) {
+      arr.splice(index, 1);
+    }
+  }
+
 }
