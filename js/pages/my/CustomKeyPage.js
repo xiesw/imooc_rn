@@ -52,8 +52,10 @@ export default class CustomKeyPage extends Component {
       this.props.navigator.pop();
       return;
     }
-    for(let i=0, len=this.changeValues.length;i<len;i++){
-      ArrayUtils.remove(this.state.dataArray, this.changeValues[i]);
+    if(this.isRemoveKey) {
+      for (let i = 0, len = this.changeValues.length; i < len; i++) {
+        ArrayUtils.remove(this.state.dataArray, this.changeValues[i]);
+      }
     }
     this.languageDao.save(this.state.dataArray);
     this.props.navigator.pop();
